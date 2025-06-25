@@ -18,12 +18,20 @@ export default function App() {
   const [email, setEmail] = useState('');
   const [senha, setSenha] = useState('');
 
+  const [visible, setVisible] = useState(false);
+
   function confirmaTudo() {
     console.log(email, senha)
     const emailConfirmado = "s@gmail.com";
     const senhaConfirmado = "123";
     if (email == emailConfirmado && senha == senhaConfirmado) {
       navigation.navigate("home");
+    } else {
+      setVisible(true);
+
+      setTimeout(() => {
+        setVisible(false)
+      }, 2500);
     }
   }
 
@@ -71,7 +79,11 @@ export default function App() {
         <MaterialIcons name="password" size={24} color="white" />
       </View>
 
-      <Button title="login" style={styles.botao} onPress={confirmaTudo} />
+      {visible && <Text style={{ color: "red" }}>EMAIL E/OU SENHA ERRADO, TENTE NOVAMENTE!!!!!!</Text>}
+
+      <TouchableOpacity title="login" style={styles.botao} onPress={confirmaTudo}>
+        <Text>Entrar</Text>
+      </TouchableOpacity>
     </ImageBackground>
   );
 }

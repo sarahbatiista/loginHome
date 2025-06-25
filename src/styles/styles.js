@@ -26,7 +26,7 @@ export const styles = StyleSheet.create({
   botao: {
     width: 100,
     padding: 10,
-    backgroundColor: "transparent",
+    backgroundColor: "yellow",
     color: "yellow",
     alignItems: "center",
     marginTop: 10,
